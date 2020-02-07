@@ -75,12 +75,10 @@ ECSsizes=( ["-s"]="SmallECS"
            ["-b"]="BigECS")
 
 declare -A Experiments
-Experiments=( ["INCXiblock"]="--tstart 20 --tend 40 --block {\"INCXi\":[100,120]} --tfinal 180"
+Experiments=( ["INCXiblock"]="--tstart 20 --tend 40 --block {\"INaG\":[100,120]} --tfinal 180"
               ["Calibration"]="--tstart 20 --tend 21.7 --perc 0.2 --tfinal 40"
               ["HealthyResponse"]="--tstart 500 --tend 600 --tfinal 30 --excite 0 20 15 3 0.95"
-              ["AstKnockHealthy"]="--tstart 500 --tend 600 --tfinal 30 --excite 0 20 15 3 0.95 --astblock 10 30"
               ["UnhealthyResponse"]="--tstart 20 --tend 40 --tfinal 100 --excite 60 80 15 3 0.95"
-	      ["NoSynapse"]="--tstart 20 --tend 40 --tfinal 100 --nosynapse"
 	      ["NoGates"]="--tstart 20 --tend 40 --tfinal 100 --nogates")
 
 
@@ -95,7 +93,6 @@ for name_ in "${!Experiments[@]}"; do
     $size_ \
     --solve \
     --plot '{"MemPot":{"plot":["ax1Vi","ax2Vg"]},"Na":{"plot":["ax1NaCi","ax2NaCg"]},"size":[2,1]}' \
-    --saveloc "$name_/${ECSsizes[$size_]}" \
-    --nogates
+    --saveloc "$name_/${ECSsizes[$size_]}"
   done; 
 done
