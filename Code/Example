@@ -87,7 +87,7 @@ for name_ in "${!Experiments[@]}"; do
     python set_up.py \
     ${Experiments[$name_]} \
     --solve \
-    --plot '{"MemPot":{"plot":["ax1Vi","ax2Vg"]},"Na":{"plot":["ax1NaCi","ax2NaCg"]},"size":[2,1]}' \
+    --plot '{"MemPot":{"plot":["ax1Vi"]},"Na":{"plot":["ax1NaCi"]},"size":[2,1]}' \
     --saveloc "$name_/${ECSsizes[$size_]}"
   done; 
 done
