@@ -68,7 +68,7 @@ def exec_plot(fm,t,y):
     # For plotting all relvant characteristics, as per tps.fm_plotall    
     if fm.plotall:
         widths = [1,1]
-        heights= [0.25,1,1,1,1,1,1]
+        heights= [0.25,1,1,1]
         wspace_ = 1.2
         hspace_ = 0.6
         figsizex_ = sum(widths)+(len(widths)+1)*wspace_
@@ -80,3 +80,4 @@ def exec_plot(fm,t,y):
         fig.subplots_adjust(hspace=hspace_)
         plotall(fm,t,y,fig,spec,1)
         plt.savefig('{a}/PlotAll.pdf'.format(a=fm.directory), format='pdf',bbox_inches='tight',pad_inches=0)    
+        disp('Plotting Done...')

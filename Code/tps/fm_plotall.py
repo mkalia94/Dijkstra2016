@@ -75,36 +75,25 @@ def plotall(fm,t,y,fig,spec,case):
         #plt.tick_params(axis='both', which='minor', labelsize=2)
 
         ax10 = fig.add_subplot(spec[1,0])
-        plottwoaxes(fm,t,y,['NaCi','NaCg'],['NaCe'],r"[Na$^+$] (mM)",fig,ax10)
+        plottwoaxes(fm,t,y,['NaCi'],['NaCe+0*t'],r"[Na$^+$] (mM)",fig,ax10)
 
         ax10 = fig.add_subplot(spec[1,1])
-        plottwoaxes(fm,t,y,['KCi','KCg'],['KCe'],r"[K$^+$] (mM)",fig,ax10)
+        plottwoaxes(fm,t,y,['KCi'],['KCe+0*t'],r"[K$^+$] (mM)",fig,ax10)
 
         ax20 = fig.add_subplot(spec[2,0])
-        plottwoaxes(fm,t,y,['ClCi','ClCg'],['ClCe'],r"[Cl$^-$] (mM)",fig,ax20)
+        plottwoaxes(fm,t,y,['ClCi'],['ClCe+0*t'],r"[Cl$^-$] (mM)",fig,ax20)
 
-        ax21 = fig.add_subplot(spec[2,1])
-        plottwoaxes(fm,t,y,['GluCi','GluCg'],['GluCc'],"[Glu] (mM)",fig,ax21)
 
-        ax30 = fig.add_subplot(spec[3,0])
-        plottwoaxes(fm,t,y,['CaCi','CaCg'],['CaCc'],r"[Ca$^{2+}$] (mM)",fig,ax30)
-
-        ax31 = fig.add_subplot(spec[3,1])
-        plottwoaxes(fm,t,y,['Voli','Volg'],[],r"Volume increase ($\%$)",fig,ax31)
+        ax31 = fig.add_subplot(spec[2,1])
+        plottwoaxes(fm,t,y,['Voli'],[],r"Volume increase ($\%$)",fig,ax31)
         
 
-        ax40 = fig.add_subplot(spec[4,0])
-        plottwoaxes(fm,t,y,['Vi','Vg'],[],"Mem. Potential (mV)",fig,ax40)
+        ax40 = fig.add_subplot(spec[3,0])
+        plottwoaxes(fm,t,y,['Vi'],[],"Mem. Potential (mV)",fig,ax40)
 
-        ax41 = fig.add_subplot(spec[4,1])
-        plottwoaxes(fm,t,y,['p.F*fGLTi'],['p.F*fGLTg'],"forward EAAT current (pA)",fig,ax41)
-
-        ax50 = fig.add_subplot(spec[5,0])
-        plottwoaxes(fm,t,y,['-INCXi'],['-INCXg'],"forward NCX current (pA)",fig,ax50)
-        ax50.set_xlabel('time (min.)', fontdict={'fontsize': 8, 'fontweight': 'medium'})
         
-        ax51 = fig.add_subplot(spec[5,1])
-        plottwoaxes(fm,t,y,['Ipumpi','p.F*fActiveg'],[],"NKA current (pA)",fig,ax51)
+        ax51 = fig.add_subplot(spec[3,1])
+        plottwoaxes(fm,t,y,['Ipumpi'],[],"NKA current (pA)",fig,ax51)
         ax51.set_xlabel('time (min.)', fontdict={'fontsize': 8, 'fontweight': 'medium'})
 
     elif case == 2:
@@ -180,35 +169,24 @@ def plotall(fm,t,y,fig,spec,case):
         #plt.tick_params(axis='both', which='minor', labelsize=2)
 
         ax10 = fig.add_subplot(spec[1,2])
-        plottwoaxes(fm,t,y,['NaCi','NaCg'],['NaCe'],r"[Na$^+$] (mM)",fig,ax10)
+        plottwoaxes(fm,t,y,['NaCi'],['NaCe+0*t'],r"[Na$^+$] (mM)",fig,ax10)
 
         ax10 = fig.add_subplot(spec[1,3])
-        plottwoaxes(fm,t,y,['KCi','KCg'],['KCe'],r"[K$^+$] (mM)",fig,ax10)
+        plottwoaxes(fm,t,y,['KCi'],['KCe+0*t'],r"[K$^+$] (mM)",fig,ax10)
 
         ax20 = fig.add_subplot(spec[2,2])
-        plottwoaxes(fm,t,y,['ClCi','ClCg'],['ClCe'],r"[Cl$^-$] (mM)",fig,ax20)
+        plottwoaxes(fm,t,y,['ClCi'],['ClCe+0*t'],r"[Cl$^-$] (mM)",fig,ax20)
 
-        ax21 = fig.add_subplot(spec[2,3])
-        plottwoaxes(fm,t,y,['GluCi','GluCg'],['GluCc'],"[Glu] (mM)",fig,ax21)
 
-        ax30 = fig.add_subplot(spec[3,2])
-        plottwoaxes(fm,t,y,['CaCi','CaCg'],['CaCc'],r"[Ca$^{2+}$] (mM)",fig,ax30)
-
-        ax31 = fig.add_subplot(spec[3,3])
-        plottwoaxes(fm,t,y,['Voli','Volg'],[],r"Volume increase ($\%$)",fig,ax31)
+        ax31 = fig.add_subplot(spec[2,3])
+        plottwoaxes(fm,t,y,['Voli'],[],r"Volume increase ($\%$)",fig,ax31)
         
 
-        ax40 = fig.add_subplot(spec[4,2])
-        plottwoaxes(fm,t,y,['Vi','Vg'],[],"Mem. Potential (mV)",fig,ax40)
+        ax40 = fig.add_subplot(spec[3,2])
+        plottwoaxes(fm,t,y,['Vi'],[],"Mem. Potential (mV)",fig,ax40)
 
-        ax41 = fig.add_subplot(spec[4,3])
-        plottwoaxes(fm,t,y,['p.F*fGLTi','p.F*fGLTg'],[],"forward EAAT current (pA)",fig,ax41)
 
-        ax50 = fig.add_subplot(spec[5,2])
-        plottwoaxes(fm,t,y,['-INCXi'],['-INCXg'],"forward NCX current (pA)",fig,ax50)
-        ax50.set_xlabel('time (min.)', fontdict={'fontsize': 8, 'fontweight': 'medium'})
-        
-        ax51 = fig.add_subplot(spec[5,3])
-        plottwoaxes(fm,t,y,['Ipumpi','p.F*fActiveg'],[],"NKA current (pA)",fig,ax51)
+        ax51 = fig.add_subplot(spec[3,3])
+        plottwoaxes(fm,t,y,['Ipumpi'],[],"NKA current (pA)",fig,ax51)
         ax51.set_xlabel('time (min.)', fontdict={'fontsize': 8, 'fontweight': 'medium'})
 
