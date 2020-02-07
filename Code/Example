@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # ---------------------------------------------------
-# Run Experiments using the TriSyn package using Bash
-# - Manu Kalia, Jan 31, 2020.
+# Run Experiments using the [Dijkstra 2016] model in Bash
+# - Manu Kalia,
 # ---------------------------------------------------
 
 #---------------------RUNNING EXPERIMENTS----------------------------------------------
