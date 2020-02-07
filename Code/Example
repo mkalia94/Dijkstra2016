@@ -68,11 +68,7 @@
 #------------------------------------------------------------------------------------
 #------------------------- EXAMPLE RUNS-----------------------------------------------
 #----------------------------------------------------------------------------------
-# (Please refer to )
-declare -A ECSsizes
-ECSsizes=( ["-s"]="SmallECS"
-           ["-m"]="MedECS"
-           ["-b"]="BigECS")
+
 
 declare -A Experiments
 Experiments=( ["INCXiblock"]="--tstart 20 --tend 40 --block {\"INaG\":[100,120]} --tfinal 180"
@@ -90,7 +86,6 @@ for name_ in "${!Experiments[@]}"; do
   for size_ in "${!ECSsizes[@]}"; do
     python set_up.py \
     ${Experiments[$name_]} \
-    $size_ \
     --solve \
     --plot '{"MemPot":{"plot":["ax1Vi","ax2Vg"]},"Na":{"plot":["ax1NaCi","ax2NaCg"]},"size":[2,1]}' \
     --saveloc "$name_/${ECSsizes[$size_]}"
