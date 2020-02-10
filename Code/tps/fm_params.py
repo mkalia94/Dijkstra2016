@@ -4,16 +4,29 @@ from tps import *
 def parameters(p, dict_):
     p.__dict__.update(dict_)
 
+    #intial volumes
+    p.We0 = (-2*p.Wratio)/(p.Wratio-1)
+    p.Wtot = p.We0+p.Wi0
+    #initial ion quantities
     p.NNai0 = p.NaCi0*p.Wi0
     p.NKi0 = p.KCi0*p.Wi0
     p.NCli0 = p.ClCi0*p.Wi0
 
+    p.NNae0 = p.NaCe0*p.We0
+    p.NKe0 = p.KCe0*p.We0
+    p.NCle0 = p.ClCe0*p.We0
+
+    #conserved total ion quantities
+    p.NNatot = p.NNai0 + p.NNae0
+    p.NKtot = p.NKi0 + p.NKe0
+    p.NCltot = p.NCli0 + p.NCle0
 
     
     # Impermeants and conserved quantities
     p.NAi = (- p.NCli0 + p.NKi0 + p.NNai0 - (p.C*p.Vi0)/p.F)
-    p.ACe = (p.NaCi0+p.KCi0+p.ClCi0+p.NAi/p.Wi0 - p.NaCe0 - p.KCe0 - p.ClCe0)
-
+    p.ACe0 = (p.NaCi0+p.KCi0+p.ClCi0+p.NAi/p.Wi0 - p.NaCe0 - p.KCe0 - p.ClCe0)
+    p.NAe = p.ACe0*p.We0
+    p.NAtot = p.NAi + p.NAe
     # Gates    
     p.alpham0 = 0.32*(p.Vi0+52)/(1-exp(-(p.Vi0+52)/4))
     p.betam0 = 0.28*(p.Vi0+25)/(exp((p.Vi0+25)/5)-1)
@@ -70,7 +83,7 @@ def parameters(p, dict_):
     ctr = 0
     p.err = 0
     
-    if (p.NAi>0) & (p.ACe>0):
+    if (p.NAi>0) & (p.NAe>0):
         disp('Quantity of impermeants....OK')
     else:
         disp('ERROR: Quantity of an impermeant is nonpositive')

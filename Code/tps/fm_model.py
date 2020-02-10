@@ -19,11 +19,14 @@ def model(t, y, p, *args):
         Vtemp = y[6]
         Wi = y[7]
 
+    #Volume changes
+    We = p.Wtot - Wi
+
     # Ionic amounts and concentrations
     # ECS
-    NaCe = p.NaCe0
-    KCe = p.KCe0
-    ClCe = p.ClCe0
+    NaCe = (p.NNatot - NNa)/We
+    KCe = (p.NKtot - NK)/We
+    ClCe = (p.NCltot - NCl)/We
     # Neuron
     NaCi = NNa/Wi
     KCi = NK/Wi
@@ -107,10 +110,11 @@ def model(t, y, p, *args):
     # ----------------------------VOLUME DYNAMICS------------------------------
     # =========================================================================
     SCi = NaCi+KCi+ClCi+p.NAi/Wi
-    SCe = NaCe+KCe+ClCe+p.ACe
+    SCe = NaCe+KCe+ClCe+p.NAe/We
     delpii = p.R*p.T*(SCi-SCe)
     fluxi = p.LH20i*(delpii)
     Voli = Wi/p.Wi0*100
+    Vole = We/p.Wi0*100
 
     # ==========================================================================
     # ----------------------------INTERVENTIONS---------------------------------

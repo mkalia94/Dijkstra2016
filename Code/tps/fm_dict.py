@@ -103,7 +103,7 @@ dict_ = {#
         'NF0' : 0,
         'NGlui0' : 0,
         'NGluc0' : 0,
-        'We0' : 0,
+        'Wratio' : 0.2,
         'NNai0' : 0,
         'NKi0' : 0,
         'NCli0' : 0,
